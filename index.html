@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#050505">
+<meta property="og:title" content="Marcos Morillo · Full-Stack Developer">
+<meta property="og:description" content="Portafolio de Marcos Morillo, desarrollador full-stack en Santo Domingo, RD.">
+<meta property="og:image" content="img/marcos.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2338BDF8'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-weight='900' font-size='28' text-anchor='middle' fill='%23050505'%3EMM%3C/text%3E%3C/svg%3E">
+<style>html{color-scheme:dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Marcos Morillo</title>
+<meta name="description" content="Portafolio de Marcos Morillo, desarrollador full-stack en Santo Domingo, RD.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#050505; --bg-2:#0B0B0F; --surface:#101014; --surface-2:#16161C; --surface-3:#1E1E26;
+  --line:#22222B; --line-2:#33333F;
+  --ink:#F4F4F6; --muted:#A3A3B2; --faint:#6E6E80;
+  --cyan:#38BDF8; --indigo:#6366F1; --violet:#A78BFA; --accent:#4F8DF7;
+  --grad:linear-gradient(92deg,#38BDF8,#6366F1 55%,#A78BFA);
+  --ok:#22C55E; --amber:#F59E0B;
+  --sk-a:#1A1A22; --sk-b:#26262F;
+  --disp:'Montserrat',system-ui,-apple-system,sans-serif;
+  --body:'Manrope',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --r:16px; --r-sm:10px; --r-full:999px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--body);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:6px}
+::selection{background:var(--indigo);color:#fff}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:clamp(16px,4vw,40px);position:relative}
+h1,h2,h3{font-family:var(--disp);letter-spacing:-.02em;line-height:1.1;text-wrap:balance}
+h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;text-align:center}
+.sub{color:var(--muted);text-align:center;max-width:58ch;margin:14px auto 0;font-size:1.05rem}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+section{position:relative;padding-block:clamp(64px,9vw,120px)}
+#space{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,header,footer{position:relative;z-index:1}
+
+/* NAV */
+.top{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:linear-gradient(180deg,rgba(5,5,5,.92),rgba(5,5,5,.6));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+.top .wrap{display:flex;align-items:center;gap:16px;height:64px}
+@media (max-width:760px){.top .wrap{justify-content:space-between}}
+.brand{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.86rem;color:var(--ink);font-weight:600}
+.brand i{width:30px;height:30px;border-radius:8px;background:var(--grad);display:grid;place-items:center;font-family:var(--disp);font-weight:900;font-size:.68rem;color:#050505;letter-spacing:-.05em}
+.brand span{color:var(--faint);font-weight:400}
+.top nav{display:flex;gap:2px}
+.top .lang{margin-left:auto}
+.top nav a{padding:8px 13px;border-radius:8px;font-size:.88rem;font-weight:600;color:var(--muted);transition:.15s;position:relative}
+.top nav a:hover{color:var(--ink)}
+.top nav a.on{color:var(--ink)}
+.top nav a.on::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;border-radius:2px;background:var(--grad)}
+.lang{height:34px;padding:0 12px;border-radius:8px;font-family:var(--mono);font-size:.74rem;color:var(--muted);border:1px solid var(--line-2);background:rgba(16,16,20,.7)}
+.lang b{color:var(--ink)}
+.burger{display:none;width:36px;height:36px;border-radius:8px;place-items:center;border:1px solid var(--line-2)}
+.burger svg{width:18px;height:18px}
+@media (max-width:760px){
+  .top nav{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:rgba(5,5,5,.97);border-bottom:1px solid var(--line);padding:10px clamp(16px,4vw,40px) 14px}
+  .top nav.open{display:flex}
+  .burger{display:grid;margin-left:auto}
+  .top .lang{margin-left:0}
+}
+
+/* HERO */
+.hero{padding-top:calc(env(safe-area-inset-top,0px) + 120px);padding-bottom:clamp(40px,6vw,80px);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,64px);align-items:center}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:40px}}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:6px 12px;border:1px solid var(--line-2);border-radius:var(--r-full);background:rgba(16,16,20,.7)}
+.eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(34,197,94,.18)}
+.hero h1{font-size:clamp(2.4rem,5.6vw,4.3rem);font-weight:900;margin-top:20px;line-height:1.02}
+.hero h1 .dec{display:block;font-family:var(--mono);font-weight:600;font-size:.5em;letter-spacing:.02em;color:var(--cyan);margin-top:.35em;min-height:1.3em}
+.hero h1 .dec .x{color:var(--faint)}
+.hero .lede{margin-top:20px;color:var(--muted);font-size:1.1rem;max-width:54ch}
+.hero .lede strong{color:var(--ink);font-weight:700}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.log{margin-top:30px;background:#0A0A0D;border:1px solid var(--line-2);border-radius:12px;padding:14px 16px;font-family:var(--mono);font-size:.8rem;color:#D7D7E0;display:grid;gap:4px;min-height:132px;align-content:start;box-shadow:0 30px 60px -40px rgba(56,189,248,.35)}
+.log .ok{color:var(--ok)}.log .k{color:var(--cyan)}.log .d{color:var(--faint)}.log .v{color:var(--violet)}
+.log .cur::after{content:"▍";color:var(--cyan);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+/* lanyard badge (reinterpreted) */
+.badge-col{display:flex;justify-content:center;align-items:flex-start;padding-top:120px}
+.lanyard{perspective:1000px}
+@media (max-width:900px){.badge-col{padding-top:130px}}
+.lanyard{position:relative;width:min(100%,296px);transform-origin:50% -520px;animation:swing 8s ease-in-out infinite;will-change:transform}
+@keyframes swing{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.2deg)}}
+.strap{position:absolute;left:50%;top:-540px;width:22px;height:550px;margin-left:-11px;background:linear-gradient(180deg,#0B0B0F,#111117 40%,#15151C);border-inline:1px solid #2A2A34;box-shadow:0 0 30px rgba(0,0,0,.6)}
+.strap::after{content:"";position:absolute;left:0;right:0;top:0;height:120px;background:linear-gradient(180deg,var(--bg),transparent)}
+.hook{display:none}
+@media (max-width:900px){.strap{top:-118px;height:128px}.strap::after{display:none}.hook{display:block;position:absolute;left:50%;top:-136px;width:26px;height:26px;margin-left:-13px;border-radius:50%;border:4px solid #3A3A46;background:var(--bg);box-shadow:0 0 0 1px #1C1C24}.lanyard{transform-origin:50% -130px}}
+.strap::before{content:"";display:none;position:absolute;left:0;top:0;width:22px;height:100%;writing-mode:vertical-rl;text-orientation:mixed;display:flex;align-items:center;font-family:var(--mono);font-size:.52rem;letter-spacing:.22em;white-space:nowrap;color:var(--cyan);opacity:.9;padding-top:6px}
+.clip{position:absolute;left:50%;top:-14px;width:34px;height:22px;margin-left:-17px;border-radius:5px;background:linear-gradient(180deg,#C9CBD6,#8A8C99);z-index:2;box-shadow:0 2px 6px rgba(0,0,0,.6)}
+.clip::after{content:"";position:absolute;left:50%;top:6px;width:14px;height:5px;margin-left:-7px;border-radius:3px;background:#3A3A44}
+.card-id{position:relative;border-radius:22px;cursor:pointer;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.8,.2,1);min-height:372px}
+.card-id.flipped{transform:rotateY(180deg)}
+.card-id .side{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:linear-gradient(165deg,#15151B 0%,#0A0A0E 100%);border:1px solid #2A2A34;border-radius:22px;overflow:hidden;padding:30px 22px 26px;box-shadow:0 50px 100px -40px rgba(0,0,0,.95),0 0 0 1px rgba(255,255,255,.03) inset,0 0 90px -50px rgba(56,189,248,.55);transition:transform .2s ease-out}
+.card-id .back{transform:rotateY(180deg);padding:22px 20px 26px;display:grid;gap:8px;align-content:start}
+.bk-head{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--disp);font-weight:800;font-size:1.05rem;margin-bottom:6px}
+.bk-head .mono-id{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--faint)}
+.bk-row{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;padding:9px 10px;border-radius:12px;border:1px solid #22222B;background:#0C0C11;transition:.15s}
+.bk-row:hover{border-color:var(--cyan)}
+.bk-row i{width:34px;height:34px;border-radius:9px;background:rgba(56,189,248,.12);display:grid;place-items:center;color:var(--cyan)}
+.bk-row svg{width:16px;height:16px}
+.bk-row span{font-size:.84rem;font-weight:600;line-height:1.2;word-break:break-all}
+.bk-row small{display:block;font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:2px}
+.card-id .hint{position:absolute;left:0;right:0;bottom:14px;display:flex;justify-content:center;align-items:center;gap:6px;font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.card-id .hint svg{width:12px;height:12px}
+.card-id .holo{position:absolute;left:0;top:0;bottom:0;width:8px;background:linear-gradient(180deg,#38BDF8,#A78BFA,#F472B6,#F59E0B,#22C55E,#38BDF8);background-size:100% 300%;animation:holo 6s linear infinite;opacity:.9}
+@keyframes holo{to{background-position:0 300%}}
+.card-id .head{display:flex;justify-content:space-between;align-items:center;padding:14px 18px 12px 24px;border-bottom:1px solid #1C1C24;font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+.card-id .head b{color:var(--ok);font-weight:500;display:inline-flex;align-items:center;gap:6px}
+.card-id .head b i{width:6px;height:6px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(34,197,94,.2)}
+.face{position:relative;aspect-ratio:1;max-width:100%;margin:0 auto;width:172px;border-radius:24px;overflow:hidden;background:#111;box-shadow:0 0 0 1px #2A2A34}
+.face img{width:100%;height:100%;object-fit:cover;display:block}
+.face .frame{position:absolute;inset:8px;pointer-events:none}
+.face .frame::before,.face .frame::after,.face .frame i::before,.face .frame i::after{content:"";position:absolute;width:20px;height:20px;border:2.5px solid var(--cyan)}
+.face .frame::before{top:0;left:0;border-right:0;border-bottom:0;border-radius:5px 0 0 0}
+.face .frame::after{top:0;right:0;border-left:0;border-bottom:0;border-radius:0 5px 0 0}
+.face .frame i::before{bottom:0;left:0;border-right:0;border-top:0;border-radius:0 0 0 5px}
+.face .frame i::after{bottom:0;right:0;border-left:0;border-top:0;border-radius:0 0 5px 0}
+.face .scan{position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);box-shadow:0 0 18px 4px rgba(56,189,248,.45);animation:scan 3.4s ease-in-out infinite}
+@keyframes scan{0%{top:5%}50%{top:93%}100%{top:5%}}
+.face .mesh{position:absolute;inset:0;background-image:radial-gradient(rgba(56,189,248,.6) 1px,transparent 1.5px);background-size:13px 13px;opacity:0;animation:mesh 3.4s ease-in-out infinite;mix-blend-mode:screen}
+@keyframes mesh{45%,58%{opacity:.5}0%,30%,78%,100%{opacity:0}}
+.card-id .who{padding:20px 0 22px;text-align:center}
+.card-id .who h3{font-size:1.2rem;font-weight:800;letter-spacing:.01em}
+.card-id .who p{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:8px}
+.card-id .stripe{position:absolute;left:0;right:0;bottom:0;height:4px;background:var(--grad)}
+.card-id .granted{margin:12px auto 0;width:max-content;display:flex;align-items:center;gap:8px;padding:6px 12px;border-radius:var(--r-full);background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.35);color:var(--ok);font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase}
+.card-id .granted svg{width:12px;height:12px}
+.card-id .foot{margin:16px 18px 18px 24px;padding-top:12px;border-top:1px dashed #2A2A34;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}
+.card-id .bars{display:flex;gap:2px;height:30px;align-items:flex-end}
+.card-id .bars i{display:block;width:2px;background:#D7D7E0;opacity:.85}
+.card-id .foot small{font-family:var(--mono);font-size:.56rem;letter-spacing:.12em;color:var(--faint);text-transform:uppercase;text-align:right;line-height:1.5;white-space:nowrap}
+/* stack strip (static, no marquee) */
+.strip{margin-top:60px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 10px}
+.strip span{font-family:var(--mono);font-size:.74rem;padding:7px 12px;border-radius:8px;border:1px solid var(--line);background:rgba(16,16,20,.7);color:var(--muted)}
+.strip span b{color:var(--ink);font-weight:600}
+
+/* PROJECTS */
+.filters{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:32px 0 28px}
+.fbtn{padding:8px 16px;border-radius:var(--r-full);border:1px solid var(--line-2);background:rgba(16,16,20,.7);font-size:.88rem;font-weight:600;color:var(--muted);transition:.15s}
+.fbtn:hover{color:var(--ink)}
+.fbtn.on{background:var(--ink);color:#050505;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:960px;margin:32px auto 0}
+@media (max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.grid{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,border-color .25s,box-shadow .25s;position:relative}
+.card:hover{transform:translateY(-4px);border-color:var(--line-2);box-shadow:0 30px 60px -30px rgba(56,189,248,.3)}
+.card[hidden]{display:none}
+.cover{position:relative;aspect-ratio:16/9;max-width:100%;overflow:hidden;background:var(--c1,#111);display:grid;place-items:center;padding:20px;text-align:center;isolation:isolate}
+.cover::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 20% 0%,var(--c2,#333),transparent 60%),radial-gradient(90% 90% at 100% 100%,var(--c3,#222),transparent 55%);z-index:-1}
+.cover::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:26px 26px;mask-image:radial-gradient(80% 80% at 50% 50%,#000 30%,transparent 100%);z-index:-1}
+.cover .ct{font-family:var(--disp);font-weight:900;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.04em;line-height:.95;color:var(--ct,#fff)}
+.cover .ct em{font-style:normal;color:var(--ce,var(--cyan))}
+.cover .cs{margin-top:8px;font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.cover .ui{position:absolute;left:14px;right:14px;bottom:-6px;height:34px;border-radius:8px 8px 0 0;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.12);border-bottom:0;display:flex;gap:6px;padding:8px 10px;align-items:center}
+.cover .ui i{height:6px;border-radius:3px;background:rgba(255,255,255,.25);flex:1}
+.cover .ui i:first-child{flex:.4;background:var(--ce,var(--cyan))}
+.cover .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top left;transition:transform .5s ease;z-index:0}
+.card:hover .cover .shot{transform:scale(1.04)}
+.cover:has(.shot)::after{display:none}
+.tagb{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border-radius:6px;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.12);color:#fff;display:inline-flex;align-items:center;gap:6px}
+.tagb i{width:6px;height:6px;border-radius:50%;background:var(--ok)}
+.tagb.wip i{background:var(--amber)}.tagb.int i{background:var(--violet)}.tagb.demo i{background:var(--cyan)}
+.cbody{padding:18px 18px 16px;display:grid;gap:10px;flex:1;align-content:start}
+.cbody h3{font-size:1.08rem;font-weight:800;line-height:1.25}
+.cbody p{color:var(--muted);font-size:.9rem;line-height:1.55}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-family:var(--mono);font-size:.66rem;padding:3px 8px;border-radius:5px;background:var(--surface-2);border:1px solid var(--line);color:var(--muted)}
+.acts{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
+.acts .code{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;color:var(--faint)}
+.acts .code svg{width:14px;height:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px;border-radius:var(--r-full);font-weight:700;font-size:.9rem;border:1px solid var(--line-2);background:rgba(16,16,20,.8);transition:.15s;white-space:nowrap}
+.btn:hover{border-color:var(--ink);transform:translateY(-1px)}
+.btn.w{background:var(--ink);color:#050505;border-color:var(--ink)}
+.btn.w:hover{box-shadow:0 0 0 4px rgba(255,255,255,.08)}
+.btn.sm{height:34px;padding:0 14px;font-size:.8rem}
+.btn svg{width:15px;height:15px}
+.btn.dis{opacity:.45;cursor:default;transform:none!important}
+.cred{font-family:var(--mono);font-size:.68rem;color:var(--faint);display:flex;flex-wrap:wrap;gap:4px 8px;align-items:center}
+.cred code{color:var(--ink);background:var(--surface-2);border:1px solid var(--line);padding:2px 6px;border-radius:4px}
+.sk{position:relative;overflow:hidden}
+.sk>*{visibility:hidden}
+.sk::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--sk-a),var(--sk-b),var(--sk-a));background-size:200% 100%;animation:sh 1.2s linear infinite}
+@keyframes sh{to{background-position:-200% 0}}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:36px}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px 18px;text-align:center}
+.stat b{display:block;font-family:var(--disp);font-weight:900;font-size:2.4rem;letter-spacing:-.04em;line-height:1}
+.stat span{display:block;margin-top:8px;color:var(--muted);font-size:.86rem}
+.stat:nth-child(2) b{color:var(--violet)}.stat:nth-child(3) b{color:var(--cyan)}.stat:nth-child(4) b{color:var(--ok)}
+
+/* TECH */
+.tech{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+@media (max-width:960px){.tech{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.tech{grid-template-columns:1fr}}
+.tcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;position:relative;overflow:hidden}
+.tcard::before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:2px;background:var(--tc,var(--cyan));opacity:.9}
+.tcard h3{font-size:.7rem;font-family:var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:500;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;background:var(--surface-2);border:1px solid var(--line);font-size:.88rem;font-weight:600}
+.chip i{width:8px;height:8px;border-radius:2px;background:var(--tc,var(--cyan))}
+
+/* UX principles */
+.ux{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+@media (max-width:860px){.ux{grid-template-columns:1fr}}
+.uxc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:grid;gap:12px;align-content:start}
+.uxc h3{font-size:1.1rem;font-weight:800}
+.uxc p{color:var(--muted);font-size:.9rem}
+.uxc .demo{background:#0A0A0D;border:1px solid var(--line);border-radius:12px;padding:12px;min-height:118px;display:grid;gap:8px;align-content:start}
+.demo .li{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center}
+.demo .av{width:34px;height:34px;border-radius:50%;background:var(--surface-3);display:grid;place-items:center;font-family:var(--disp);font-weight:800;font-size:.8rem;color:var(--cyan)}
+.demo .tx b{display:block;font-size:.86rem}
+.demo .tx span{font-size:.74rem;color:var(--faint);font-family:var(--mono)}
+.demo.sk-on .av,.demo.sk-on .tx b,.demo.sk-on .tx span{position:relative;overflow:hidden;color:transparent;background:linear-gradient(90deg,var(--sk-a),var(--sk-b),var(--sk-a));background-size:200% 100%;animation:sh 1.2s linear infinite}
+.demo.sk-on .tx b,.demo.sk-on .tx span{height:9px;width:60%;border-radius:4px;display:block}
+.demo.sk-on .tx span{width:40%;margin-top:6px}
+.hick{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.hick .opt{display:grid;gap:5px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.hick .opt b{font-size:.64rem;font-family:var(--mono);color:var(--faint);letter-spacing:.08em;text-transform:uppercase}
+.hick .opt i{display:block;height:8px;border-radius:4px;background:var(--surface-3)}
+.hick .opt.good i:first-of-type{background:var(--cyan)}
+.hick .opt .t{font-size:.7rem;color:var(--muted);font-family:var(--mono)}
+.fitts{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.fitts .bt{border-radius:8px;background:var(--grad)}
+.mini{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border-radius:var(--r-full);border:1px solid var(--line-2);background:var(--surface-2);font-size:.82rem;font-weight:600}
+.mini:hover{border-color:var(--ink)}
+
+/* EXPERIENCE */
+.exp{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(24px,4vw,56px);margin-top:40px}
+@media (max-width:860px){.exp{grid-template-columns:1fr}}
+.tl{position:relative}
+.tl::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:var(--line-2)}
+.job{position:relative;padding:0 0 30px 32px}
+.job::before{content:"";position:absolute;left:3px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--bg);border:2px solid var(--cyan)}
+.job:first-child::before{background:var(--cyan);box-shadow:0 0 0 5px rgba(56,189,248,.18)}
+.job .when{font-family:var(--mono);font-size:.72rem;color:var(--faint);letter-spacing:.08em}
+.job h3{font-size:1.15rem;font-weight:800;margin-top:4px}
+.job .org{color:var(--cyan);font-weight:700;font-size:.9rem}
+.job ul{margin-top:8px;color:var(--muted);font-size:.92rem;padding-left:18px;display:grid;gap:4px}
+.aside{display:grid;gap:14px;align-content:start}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.box h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:500;margin-bottom:10px}
+.box p,.box li{color:var(--muted);font-size:.9rem}
+.box ul{list-style:none;display:grid;gap:8px}
+.box ul.certs{gap:7px}
+.box ul.certs li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;font-size:.78rem;font-family:var(--mono);color:var(--faint)}
+.box ul.certs li b{display:inline;font-family:var(--body);font-size:.9rem;font-weight:600;color:var(--ink)}
+.box ul.certs li span{font-family:var(--mono)}
+.learn{margin-top:36px;border-top:1px solid var(--line);padding-top:28px}
+.learn-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin-bottom:16px}
+.learn-head h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:500}
+.learn-head span{color:var(--muted);font-size:.88rem}
+.cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+@media (max-width:960px){.cgrid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.cgrid{grid-template-columns:1fr}}
+.course{display:grid;grid-template-columns:4px 1fr;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);transition:.15s}
+.course:hover{border-color:var(--line-2);transform:translateY(-1px)}
+.course i{display:block;width:4px;height:100%;min-height:30px;border-radius:2px;background:var(--cc,var(--cyan))}
+.course b{display:block;font-weight:700;font-size:.88rem;line-height:1.25}
+.course span{display:block;color:var(--faint);font-size:.74rem;margin-top:3px;font-family:var(--mono)}
+.box li b{color:var(--ink);font-weight:700;display:block}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,64px);align-items:center;margin-top:40px}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
+.orbit{position:relative;aspect-ratio:1;max-width:100%;display:grid;place-items:center}
+.orbit .core{width:58%;aspect-ratio:1;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-family:var(--disp);font-weight:900;font-size:clamp(3rem,8vw,5rem);letter-spacing:-.06em;color:#050505;box-shadow:0 0 80px -10px rgba(99,102,241,.6)}
+.orbit .ring{position:absolute;inset:0;border-radius:50%;border:1px dashed var(--line-2);animation:spin 40s linear infinite}
+.orbit .ring.r2{inset:12%;animation-duration:26s;animation-direction:reverse}
+.orbit .ring span{position:absolute;top:-16px;left:50%;transform:translateX(-50%);padding:5px 10px;border-radius:var(--r-full);background:var(--surface);border:1px solid var(--line-2);font-family:var(--mono);font-size:.64rem;white-space:nowrap}
+.orbit .ring.r2 span{top:auto;bottom:-16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.about .txt{display:grid;gap:14px;color:var(--muted);font-size:1.02rem}
+.about .txt strong{color:var(--ink);font-weight:700}
+.about h2{text-align:left}
+blockquote{margin-top:6px;padding:18px 22px;border-left:3px solid var(--cyan);background:var(--surface);border-radius:0 var(--r) var(--r) 0;font-family:var(--disp);font-size:1.1rem;font-weight:700;color:var(--ink);line-height:1.45}
+
+/* CONTACT */
+.panel{background:radial-gradient(70% 90% at 10% 10%,rgba(56,189,248,.14),transparent 60%),radial-gradient(60% 80% at 100% 100%,rgba(99,102,241,.16),transparent 60%),var(--surface);border:1px solid var(--line-2);border-radius:28px;padding:clamp(28px,5vw,60px);display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,56px);align-items:center;box-shadow:0 40px 120px -40px rgba(56,189,248,.25)}
+@media (max-width:860px){.panel{grid-template-columns:1fr}}
+.panel h2{text-align:left;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.02}
+.panel p{color:var(--muted);margin-top:16px;max-width:42ch;font-size:1.02rem}
+.panel .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.info{background:rgba(5,5,5,.6);border:1px solid var(--line-2);border-radius:20px;padding:22px;display:grid;gap:18px}
+.irow{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start}
+.irow .ic{width:38px;height:38px;border-radius:50%;background:rgba(56,189,248,.12);display:grid;place-items:center;color:var(--cyan)}
+.irow svg{width:17px;height:17px}
+.irow b{display:block;font-weight:800;font-size:.95rem}
+.irow span{color:var(--muted);font-size:.88rem;display:flex;align-items:center;gap:8px;flex-wrap:wrap;word-break:break-all}
+.irow .dotg{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(34,197,94,.18)}
+.cp{font-family:var(--mono);font-size:.66rem;color:var(--faint);padding:3px 7px;border:1px solid var(--line-2);border-radius:5px}
+.cp:hover{color:var(--ink)}.cp.ok{color:var(--ok);border-color:var(--ok)}
+.info hr{border:0;border-top:1px solid var(--line)}
+.social{display:flex;gap:8px;flex-wrap:wrap}
+.social a{width:42px;height:42px;border-radius:10px;border:1px solid var(--line-2);display:grid;place-items:center;color:var(--muted);background:var(--surface)}
+.social a:hover{color:var(--ink);border-color:var(--cyan)}
+.social svg{width:17px;height:17px}
+
+footer{border-top:1px solid var(--line);padding-block:44px;background:rgba(5,5,5,.85)}
+.fcol{display:grid;justify-items:center;text-align:center;gap:14px}
+.fname{font-family:var(--disp);font-weight:800;font-size:1.15rem;letter-spacing:-.01em}
+.flinks{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px}
+.flinks a{font-size:.92rem;font-weight:600;color:var(--muted);transition:.15s}
+.flinks a:hover{color:var(--ink)}
+.fcopy{font-size:.84rem;color:var(--faint)}
+.fstatus{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--ok)}
+.fstatus i{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(34,197,94,.2)}
+.fstatus .sep{color:var(--faint)}
+.totop{position:fixed;right:18px;bottom:calc(env(safe-area-inset-bottom,0px) + 18px);width:40px;height:40px;border-radius:50%;background:var(--ink);color:#050505;display:grid;place-items:center;z-index:40;opacity:0;pointer-events:none;transition:.2s}
+.totop.show{opacity:1;pointer-events:auto}
+.totop svg{width:16px;height:16px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+
+<canvas id="space" aria-hidden="true"></canvas>
+
+<header class="top">
+  <div class="wrap">
+    <nav id="nav">
+      <a href="#inicio" class="on" data-i="nav.home">Inicio</a>
+      <a href="#proyectos" data-i="nav.projects">Proyectos</a>
+      <a href="#stack" data-i="nav.stack">Tecnologías</a>
+      <a href="#experiencia" data-i="nav.exp">Experiencia</a>
+      <a href="#contacto" data-i="nav.contact">Contacto</a>
+    </nav>
+    <button class="lang" id="langBtn" aria-label="Cambiar idioma"><span id="langEs"><b>ES</b></span>/<span id="langEn">EN</span></button>
+    <button class="burger" id="burger" aria-label="Menú"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow"><i></i><span data-i="hero.status">Disponible · Santo Domingo, RD · remoto</span></span>
+      <h1><span data-i="hero.h1">Software que opera negocios reales.</span><span class="dec" id="dec" aria-live="off"></span></h1>
+      <p class="lede" data-i-html="hero.lede">Soy <strong>Marcos Morillo</strong>, desarrollador full-stack. Diseño y entrego sistemas completos: gestión escolar, gimnasios, ERPs de laboratorio clínico y control de acceso biométrico, con .NET, Django, React y PostgreSQL.</p>
+      <div class="cta">
+        <a class="btn w" href="#proyectos"><span data-i="hero.cta1">Ver proyectos</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn" id="cvRail" href="cv/CV_Marcos_Morillo_ES.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/><path d="M9 13h6M9 17h6"/></svg><span data-i="hero.cta2">Descargar CV</span></a>
+        <a class="btn" href="#contacto" data-i="hero.cta3">Contacto</a>
+      </div>
+      <div class="log" id="termBody" aria-live="polite"></div>
+    </div>
+    <div class="badge-col" aria-hidden="true">
+      <div class="lanyard" id="lanyard">
+        <div class="hook"></div>
+        <div class="strap"></div>
+        <div class="clip"></div>
+        <div class="card-id" id="cardId" role="button" tabindex="0" aria-label="Voltear carné">
+          <div class="side front">
+            <div class="face"><img src="img/marcos.png" alt="" width="400" height="400"></div>
+            <div class="who"><h3>Marcos Morillo</h3><p data-i="dev.role">Full-Stack Developer</p></div>
+            <span class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg><span data-i="dev.hint">toca para voltear</span></span>
+            <div class="stripe"></div>
+          </div>
+          <div class="side back">
+            <div class="bk-head"><span data-i="dev.contact">Contacto</span><span class="mono-id">SDQ · UTC−4</span></div>
+            <a class="bk-row" href="mailto:mmorillo.js@gmail.com"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></i><span><small>Email</small>mmorillo.js@gmail.com</span></a>
+            <a class="bk-row" href="https://wa.me/18492068789" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.2-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg></i><span><small>WhatsApp</small>+1 (849) 206-8789</span></a>
+            <a class="bk-row" href="https://www.linkedin.com/in/marcos-jos%C3%A9-morillo-suarez-35aa12234/" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.5h-3V21h3zM5 3.5a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5zM21 13.6c0-3.4-1.8-5.3-4.5-5.3-2 0-2.9 1.1-3.4 1.9V8.5H10V21h3.1v-6.9c0-1.8.6-3 2.2-3 1.5 0 2.1 1.1 2.1 3V21H21z"/></svg></i><span><small>LinkedIn</small><span data-i="dev.li">Ver perfil</span></span></a>
+            <a class="bk-row" id="bkCv" href="cv/CV_Marcos_Morillo_ES.pdf" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z"/></svg></i><span><small>CV</small><span data-i="dev.cv">Descargar PDF</span></span></a>
+            <div class="stripe"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap"><div class="strip" aria-label="Stack">
+    <span><b>C#</b> · .NET</span><span><b>TypeScript</b></span><span><b>JavaScript</b></span><span><b>React</b> · Next.js · Angular</span><span><b>Python</b> · Django</span><span><b>Node.js</b></span><span><b>Flutter</b></span><span><b>PostgreSQL</b> · SQL Server</span><span><b>Vite</b> · Tailwind</span><span><b>Docker</b> · Nginx</span><span><b>Control iD</b> · ZKTeco</span>
+  </div></div>
+</section>
+
+<section id="proyectos">
+  <div class="wrap">
+    <h2 data-i-html="pj.h2">Proyectos <span class="grad">reales</span>, en producción</h2>
+    <p class="sub" data-i="pj.p">Productos propios con clientes que los usan todos los días. Ambos con demo en línea.</p>
+        <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="numeros" style="padding-top:0">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>4+</b><span data-i="st.1">años construyendo software</span></div>
+      <div class="stat"><b>2</b><span data-i="st.2">productos propios en producción</span></div>
+      <div class="stat"><b>2</b><span data-i="st.3">demos en línea para probar ahora</span></div>
+      <div class="stat"><b>ES · EN</b><span data-i="st.4">demos interactivas en un solo archivo</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <h2 data-i="tk.h2">Tecnologías</h2>
+    <p class="sub" data-i="tk.p">El mismo patrón en todos mis productos: API tipada, front-end con estado claro y PostgreSQL como única fuente de verdad.</p>
+    <div class="tech">
+      <div class="tcard" style="--tc:#38BDF8"><h3 data-i="tk.g1">Lenguajes</h3><div class="chips"><span class="chip"><i></i>C#</span><span class="chip"><i></i>TypeScript</span><span class="chip"><i></i>JavaScript</span><span class="chip"><i></i>Python</span><span class="chip"><i></i>SQL</span><span class="chip"><i></i>Dart</span></div></div>
+      <div class="tcard" style="--tc:#A78BFA"><h3>Back-end</h3><div class="chips"><span class="chip"><i></i>.NET Core</span><span class="chip"><i></i>ASP.NET Core</span><span class="chip"><i></i>Entity Framework</span><span class="chip"><i></i>Python</span><span class="chip"><i></i>Django / DRF</span><span class="chip"><i></i>Node.js</span><span class="chip"><i></i>Express</span><span class="chip"><i></i>Celery</span></div></div>
+      <div class="tcard" style="--tc:#6366F1"><h3>Front-end &amp; Mobile</h3><div class="chips"><span class="chip"><i></i>React</span><span class="chip"><i></i>Next.js</span><span class="chip"><i></i>Vite</span><span class="chip"><i></i>Angular</span><span class="chip"><i></i>Flutter</span><span class="chip"><i></i>PWA</span><span class="chip"><i></i>Tailwind</span></div></div>
+      <div class="tcard" style="--tc:#F59E0B"><h3 data-i="tk.g4">Bases de datos</h3><div class="chips"><span class="chip"><i></i>PostgreSQL</span><span class="chip"><i></i>SQL Server</span><span class="chip"><i></i>MongoDB</span><span class="chip"><i></i>Redis</span></div></div>
+      <div class="tcard" style="--tc:#22C55E"><h3>DevOps &amp; Infra</h3><div class="chips"><span class="chip"><i></i>Docker</span><span class="chip"><i></i>CI/CD</span><span class="chip"><i></i>Git &amp; GitHub</span><span class="chip"><i></i>Nginx / Caddy</span><span class="chip"><i></i>Gunicorn</span><span class="chip"><i></i>systemd / NSSM</span><span class="chip"><i></i>Ubuntu VPS</span></div></div>
+      <div class="tcard" style="--tc:#F472B6"><h3 data-i="tk.g6">Hardware &amp; IA</h3><div class="chips"><span class="chip"><i></i>Control iD</span><span class="chip"><i></i>ZKTeco ADMS</span><span class="chip"><i></i><span data-i="tk.llm">Integración de LLMs</span></span><span class="chip"><i></i>Ed25519 licensing</span></div></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="experiencia" style="padding-top:0">
+  <div class="wrap">
+    <h2 data-i="ex.h2">Trayectoria</h2>
+    <div class="exp">
+      <div class="tl">
+        <div class="job">
+          <span class="when">2022 — <span data-i="ex.now">PRESENTE</span></span>
+          <h3 data-i="ex.j1t">Analista Programador · Full-Stack</h3>
+          <span class="org">Amadita Laboratorio Clínico · Santo Domingo</span>
+          <ul>
+            <li data-i="ex.j1a">Desarrollo de extremo a extremo de sistemas internos: back-end en ASP.NET Core y SQL Server; front-end en React, Angular y TypeScript.</li>
+            <li data-i="ex.j1b">Optimización de bases de datos y consultas SQL: reescritura de CTEs, indexación y diagnóstico de rendimiento.</li>
+            <li data-i="ex.j1c">Integración de APIs REST y migraciones de datos críticas en el sector salud.</li>
+          </ul>
+        </div>
+        <div class="job">
+          <span class="when">2025 — 2026</span>
+          <h3 data-i="ex.j2t">Desarrollador Freelance</h3>
+          <span class="org">IKey Technologies</span>
+          <ul>
+            <li data-i="ex.j2a">Aplicaciones a la medida de extremo a extremo: Ada y FitZone Pro, con integración de terminales biométricos y módulo de licenciamiento propio.</li>
+            <li data-i="ex.j2b">Instalación como servicio del sistema en Windows y Linux (PostgreSQL, Nginx, Waitress/Gunicorn, Celery).</li>
+          </ul>
+        </div>
+        <div class="job">
+          <span class="when">2021 — 2022</span>
+          <h3 data-i="ex.j3t">Becario de Soporte Técnico</h3>
+          <span class="org">Sistemas Integrados de Informática (SII)</span>
+          <ul>
+            <li data-i="ex.j3a">Soporte técnico a usuarios, mantenimiento de equipos y configuración de software.</li>
+            <li data-i="ex.j3b">Diagnóstico y resolución de incidencias de sistemas y hardware.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="aside">
+        <div class="box"><h4 data-i="ex.edu">Educación</h4><ul>
+          <li><b data-i="ex.e1">Tecnólogo en Sistemas / Desarrollo de Software</b>Instituto Tecnológico de Las Américas (ITLA)</li>
+          <li><b data-i="ex.e2">Inglés avanzado</b>Instituto Cultural Domínico Americano · Cincilingua Inc.</li>
+        </ul></div>
+        <div class="box"><h4 data-i="ex.cert">Certificaciones y cursos</h4><ul class="certs">
+          <li><b>Scrum Fundamentals</b></li>
+          <li><b data-i="ex.c4">Introducción al desarrollo Front-End</b></li>
+          <li><b>JavaScript Moderno</b></li>
+          <li><b>React: De cero a experto</b></li>
+          <li><b>Universidad Angular: De cero a experto</b></li>
+          <li><b>React Native CLI: iOS y Android</b></li>
+          <li><b>Desarrollo Web en ASP.NET Core</b></li>
+          <li><b>Arquitectura de Aplicaciones Empresariales con .NET 10</b></li>
+          <li><b>The Complete Full-Stack Web Development Bootcamp</b></li>
+        </ul></div>
+        
+        <div class="box"><h4 data-i="ex.lang">Idiomas</h4><ul>
+          <li><b data-i="ex.l1">Español</b><span data-i="ex.l1b">Nativo</span></li>
+          <li><b data-i="ex.l2">Inglés</b><span data-i="ex.l2b">Avanzado</span></li>
+        </ul></div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre-mi" style="padding-top:0">
+  <div class="wrap">
+    <div class="about">
+      <div class="orbit" aria-hidden="true">
+        <div class="ring"><span>.NET · Django · Node</span></div>
+        <div class="ring r2"><span>React · Angular · Flutter</span></div>
+        <div class="core">MM</div>
+      </div>
+      <div class="txt">
+        <h2 data-i-html="ab.h2">Software que funciona <span class="grad">y que da gusto usar</span></h2>
+        <p data-i-html="ab.p1">Desde 2022 desarrollo sistemas internos en <strong>Amadita Laboratorio Clínico</strong>: aplicaciones web de gestión, una app móvil en Flutter y migraciones de datos en el sector salud, donde la integridad de la información no puede fallar.</p>
+        <p data-i-html="ab.p2">En paralelo construyo productos propios con <strong>IKey Technologies</strong>: Ada y FitZone Pro. Comparten una misma arquitectura, se instalan como servicio del sistema y hablan con hardware real: terminales biométricas Control iD.</p>
+        <p data-i-html="ab.p3">Tengo opiniones firmes sobre <strong>independencia de módulos</strong>, auditar cada operación aunque cueste rendimiento y verificar en el código antes de afirmar algo.</p>
+        <blockquote data-i="ab.q">"Creo en construir software que no solo funcione bien, sino que la persona del otro lado lo entienda sin manual."</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" style="padding-top:0">
+  <div class="wrap">
+    <div class="panel">
+      <div>
+        <h2 data-i-html="ct.h2">¿Tu próximo<br>sistema?<br><span class="grad">Hablemos.</span></h2>
+        <p data-i="ct.p">Abierto a posiciones full-stack, proyectos a la medida e integraciones con hardware biométrico. Respondo el mismo día.</p>
+        <div class="cta">
+          <a class="btn w" id="mailBtn" href="mailto:mmorillo.js@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span data-i="ct.mail">Enviar correo</span></a>
+          <a class="btn" href="https://wa.me/18492068789" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.2-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg>WhatsApp</a>
+        </div>
+      </div>
+      <div class="info">
+        <div class="irow"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><b data-i="ct.status">Estado actual</b><span><i class="dotg"></i><span data-i="ct.statusv">Disponible para nuevas oportunidades</span></span></div></div>
+        <div class="irow"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div><b data-i="ct.loc">Ubicación</b><span data-i="ct.locv">Santo Domingo, República Dominicana (remoto disponible)</span></div></div>
+        <div class="irow"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div><div><b>Email</b><span><span id="v1">mmorillo.js@gmail.com</span><button class="cp" data-cp="v1" data-i="ct.copy">copiar</button></span></div></div>
+        <div class="irow"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6.2 6.2l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div><div><b data-i="ct.phone">Teléfono</b><span><span id="v2">+1 (849) 206-8789</span><button class="cp" data-cp="v2" data-i="ct.copy">copiar</button></span></div></div>
+        <hr>
+        <div><b style="display:block;font-weight:800;margin-bottom:10px" data-i="ct.connect">Conecta conmigo</b>
+          <div class="social">
+            <a href="https://www.linkedin.com/in/marcos-jos%C3%A9-morillo-suarez-35aa12234/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 8.5h-3V21h3zM5 3.5a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5zM21 13.6c0-3.4-1.8-5.3-4.5-5.3-2 0-2.9 1.1-3.4 1.9V8.5H10V21h3.1v-6.9c0-1.8.6-3 2.2-3 1.5 0 2.1 1.1 2.1 3V21H21z"/></svg></a>
+            <a href="https://wa.me/18492068789" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.2-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg></a>
+            <a href="cv/CV_Marcos_Morillo_ES.pdf" target="_blank" rel="noopener" aria-label="CV ES" title="CV español"><span style="font-family:var(--mono);font-size:.7rem;font-weight:600">CV·ES</span></a>
+            <a href="cv/CV_Marcos_Morillo_EN.pdf" target="_blank" rel="noopener" aria-label="CV EN" title="CV English"><span style="font-family:var(--mono);font-size:.7rem;font-weight:600">CV·EN</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap fcol">
+    <div class="fname">Marcos Morillo</div>
+    <div class="flinks">
+      <a href="https://www.linkedin.com/in/marcos-jos%C3%A9-morillo-suarez-35aa12234/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://wa.me/18492068789" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:mmorillo.js@gmail.com">Email</a>
+    </div>
+    <div class="fcopy">© <span id="year">2026</span> Marcos Morillo. <span data-i="ft.rights">Todos los derechos reservados.</span></div>
+    <div class="fstatus"><i></i><span data-i="ft.on">ESTADO: DISPONIBLE · EN LÍNEA</span><span class="sep">·</span><span id="clock">SDQ --:--</span></div>
+  </div>
+</footer>
+<a class="totop" id="totop" href="#inicio" aria-label="Subir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
+
+<script>
+(function(){
+'use strict';
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- i18n ---------- */
+const T={
+ es:{
+  'nav.home':'Inicio','nav.projects':'Proyectos','nav.stack':'Tecnologías','nav.exp':'Experiencia','nav.contact':'Contacto',
+  'hero.status':'Disponible · Santo Domingo, RD · remoto','hero.h1':'Software que opera negocios reales.',
+  'hero.lede':'Soy <strong>Marcos Morillo</strong>, desarrollador full-stack. Diseño y entrego sistemas completos: gestión escolar, gimnasios, ERPs de laboratorio clínico y control de acceso biométrico, con .NET, Django, React y PostgreSQL.',
+  'hero.cta1':'Ver proyectos','hero.cta2':'Descargar CV','hero.cta3':'Contacto',
+  'dev.role':'Full-Stack Developer','dev.hint':'toca para voltear','dev.contact':'Contacto','dev.cv':'Descargar PDF','dev.li':'Ver perfil',
+  'badge.role':'Software Developer · Full-Stack',
+  'pj.h2':'Proyectos <span class="grad">reales</span>, en producción',
+  'pj.p':'Productos propios con clientes que los usan todos los días. Ambos con demo en línea.',
+  'st.1':'años construyendo software','st.2':'productos propios en producción','st.3':'demos en línea para probar ahora','st.4':'español nativo · inglés avanzado',
+  'tk.h2':'Tecnologías','tk.p':'El mismo patrón en todos mis productos: API tipada, front-end con estado claro y PostgreSQL como única fuente de verdad.',
+  'tk.g1':'Lenguajes','tk.g4':'Bases de datos','tk.g6':'Hardware & IA','tk.llm':'Integración de LLMs',
+  'ux.h2':'Cómo diseño una pantalla','ux.p':'Tres principios que aplico en Ada, FitZone Pro y en esta misma página.',
+  'ux.sk':'Mientras la API responde, la pantalla muestra la forma del contenido en vez de un spinner. La carga se percibe más corta y nada salta cuando llegan los datos.',
+  'ux.skbtn':'Simular carga','ux.hick':'Ley de Hick',
+  'ux.hickp':'El tiempo de decisión crece con el número de opciones. Por eso los menús tienen pocas entradas, los filtros son cuatro y cada pantalla tiene una sola acción primaria.',
+  'ux.before':'antes · 9 opciones','ux.after':'ahora · 3 opciones','ux.fitts':'Ley de Fitts',
+  'ux.fittsp':'Lo que más se usa es grande y está cerca. En la PWA de asistencia de Ada el docente marca presente con un swipe y el botón de guardar ocupa todo el ancho.',
+  'ux.fittsn':'tiempo de alcance ↓ cuando tamaño ↑ y distancia ↓',
+  'ex.h2':'Trayectoria','ex.now':'PRESENTE','ex.j1t':'Analista Programador · Full-Stack',
+  'ex.j1a':'Desarrollo de extremo a extremo de sistemas internos: back-end en ASP.NET Core y SQL Server; front-end en React, Angular y TypeScript.',
+  'ex.j1b':'Optimización de bases de datos y consultas SQL: reescritura de CTEs, indexación y diagnóstico de rendimiento.',
+  'ex.j1c':'Integración de APIs REST y migraciones de datos críticas en el sector salud.',
+  'ex.j2t':'Desarrollador Freelance',
+  'ex.j2a':'Aplicaciones a la medida de extremo a extremo: Ada y FitZone Pro, con integración de terminales biométricos y módulo de licenciamiento propio.',
+  'ex.j2b':'Instalación como servicio del sistema en Windows y Linux (PostgreSQL, Nginx, Waitress/Gunicorn, Celery).',
+  'ex.j3t':'Becario de Soporte Técnico','ex.j3a':'Soporte técnico a usuarios, mantenimiento de equipos y configuración de software.','ex.j3b':'Diagnóstico y resolución de incidencias de sistemas y hardware.',
+  'ex.edu':'Educación','ex.e1':'Tecnólogo en Sistemas / Desarrollo de Software','ex.e2':'Inglés avanzado',
+  'ex.cert':'Certificaciones y cursos','ex.learn':'Formación continua · Udemy','ex.learnp':'Cursos con los que mantengo el stack al día','ex.c1':'Scrum','ex.c4':'Introducción al desarrollo Front-End',
+  'ex.lang':'Idiomas','ex.l1':'Español','ex.l1b':'Nativo','ex.l2':'Inglés','ex.l2b':'Avanzado',
+  'ab.h2':'Software que funciona <span class="grad">y que da gusto usar</span>',
+  'ab.p1':'Desde 2022 desarrollo sistemas internos en <strong>Amadita Laboratorio Clínico</strong>: aplicaciones web de gestión, una app móvil en Flutter y migraciones de datos en el sector salud, donde la integridad de la información no puede fallar.',
+  'ab.p2':'En paralelo construyo productos propios con <strong>IKey Technologies</strong>: Ada y FitZone Pro. Comparten una misma arquitectura, se instalan como servicio del sistema y hablan con hardware real: terminales biométricas Control iD.',
+  'ab.p3':'Tengo opiniones firmes sobre <strong>independencia de módulos</strong>, auditar cada operación aunque cueste rendimiento y verificar en el código antes de afirmar algo.',
+  'ab.q':'"Creo en construir software que no solo funcione bien, sino que la persona del otro lado lo entienda sin manual."',
+  'ct.h2':'¿Tu próximo<br>sistema?<br><span class="grad">Hablemos.</span>',
+  'ct.p':'Abierto a posiciones full-stack, proyectos a la medida e integraciones con hardware biométrico. Respondo el mismo día.',
+  'ct.mail':'Enviar correo','ct.status':'Estado actual','ct.statusv':'Disponible para nuevas oportunidades','ct.loc':'Ubicación','ct.locv':'Santo Domingo, República Dominicana (remoto disponible)',
+  'ct.phone':'Teléfono','ct.copy':'copiar','ct.copied':'copiado ✓','ct.connect':'Conecta conmigo',
+  'ft.on':'ESTADO: DISPONIBLE · EN LÍNEA','ft.rights':'Todos los derechos reservados.',
+  'f.all':'Todos','f.prod':'Productos','f.demo':'Demos',
+  'b.live':'Demo en línea','b.prod':'En producción','b.internal':'Sistema interno','b.demo':'Demo · 1 archivo','b.wip':'En desarrollo',
+  'a.demo':'Ver demo','a.code':'Código privado','a.creds':'Demo:'
+ },
+ en:{
+  'nav.home':'Home','nav.projects':'Projects','nav.stack':'Tech Stack','nav.exp':'Experience','nav.contact':'Contact',
+  'hero.status':'Available · Santo Domingo, DR · remote','hero.h1':'Software that runs real businesses.',
+  'hero.lede':'I\'m <strong>Marcos Morillo</strong>, a full-stack developer. I design and ship complete systems: school management, gyms, clinical-lab ERPs and biometric access control, with .NET, Django, React and PostgreSQL.',
+  'hero.cta1':'View projects','hero.cta2':'Download CV','hero.cta3':'Contact',
+  'dev.role':'Full-Stack Developer','dev.hint':'tap to flip','dev.contact':'Contact','dev.cv':'Download PDF','dev.li':'View profile',
+  'badge.role':'Software Developer · Full-Stack',
+  'pj.h2':'<span class="grad">Real</span> projects, in production',
+  'pj.p':'Own products that customers use every day. Both with a live demo.',
+  'st.1':'years building software','st.2':'own products in production','st.3':'live demos you can try now','st.4':'native Spanish · advanced English',
+  'tk.h2':'Tech Stack','tk.p':'The same pattern across my products: typed API, front-end with clear state, and PostgreSQL as the single source of truth.',
+  'tk.g1':'Languages','tk.g4':'Databases','tk.g6':'Hardware & AI','tk.llm':'LLM integration',
+  'ux.h2':'How I design a screen','ux.p':'Three principles I apply in Ada, FitZone Pro and on this very page.',
+  'ux.sk':'While the API responds, the screen shows the shape of the content instead of a spinner. Loading feels shorter and nothing jumps when data arrives.',
+  'ux.skbtn':'Simulate loading','ux.hick':'Hick\'s Law',
+  'ux.hickp':'Decision time grows with the number of choices. That\'s why menus stay short, there are four filters, and each screen has one primary action.',
+  'ux.before':'before · 9 options','ux.after':'now · 3 options','ux.fitts':'Fitts\'s Law',
+  'ux.fittsp':'The most-used targets are big and close. In Ada\'s attendance PWA, teachers mark present with a swipe and the save button spans the full width.',
+  'ux.fittsn':'reach time ↓ as size ↑ and distance ↓',
+  'ex.h2':'Career path','ex.now':'PRESENT','ex.j1t':'Programmer Analyst · Full-Stack',
+  'ex.j1a':'End-to-end development of internal systems: ASP.NET Core and SQL Server back-end; React, Angular and TypeScript front-end.',
+  'ex.j1b':'Database and SQL query optimization: CTE rewriting, indexing and performance diagnostics.',
+  'ex.j1c':'REST API integration and critical data migrations in healthcare.',
+  'ex.j2t':'Freelance Developer',
+  'ex.j2a':'End-to-end custom applications: Ada and FitZone Pro, with biometric terminal integration and an in-house licensing module.',
+  'ex.j2b':'Installed as a system service on Windows and Linux (PostgreSQL, Nginx, Waitress/Gunicorn, Celery).',
+  'ex.j3t':'Technical Support Intern','ex.j3a':'User technical support, equipment maintenance and software configuration.','ex.j3b':'Diagnosis and resolution of system and hardware incidents.',
+  'ex.edu':'Education','ex.e1':'Associate Degree in Systems / Software Development','ex.e2':'Advanced English',
+  'ex.cert':'Certifications & courses','ex.learn':'Continuous learning · Udemy','ex.learnp':'Courses I use to keep the stack current','ex.c1':'Scrum','ex.c4':'Introduction to Front-End Development',
+  'ex.lang':'Languages','ex.l1':'Spanish','ex.l1b':'Native','ex.l2':'English','ex.l2b':'Advanced',
+  'ab.h2':'Software that works <span class="grad">and is a pleasure to use</span>',
+  'ab.p1':'Since 2022 I\'ve built internal systems at <strong>Amadita Clinical Laboratory</strong>: management web apps, a Flutter mobile app, and healthcare data migrations where data integrity cannot fail.',
+  'ab.p2':'In parallel I build my own products with <strong>IKey Technologies</strong>: Ada and FitZone Pro. They share one architecture, install as a system service, and talk to real hardware: Control iD biometric terminals.',
+  'ab.p3':'I hold firm opinions on <strong>module independence</strong>, auditing every operation even at a performance cost, and checking the code before making a claim.',
+  'ab.q':'"I believe in building software that not only works well, but that the person on the other side understands without a manual."',
+  'ct.h2':'Your next<br>system?<br><span class="grad">Let\'s talk.</span>',
+  'ct.p':'Open to full-stack roles, custom projects and biometric hardware integrations. I reply the same day.',
+  'ct.mail':'Send email','ct.status':'Current status','ct.statusv':'Available for new opportunities','ct.loc':'Location','ct.locv':'Santo Domingo, Dominican Republic (remote available)',
+  'ct.phone':'Phone','ct.copy':'copy','ct.copied':'copied ✓','ct.connect':'Connect with me',
+  'ft.on':'STATUS: AVAILABLE · ONLINE','ft.rights':'All rights reserved.',
+  'f.all':'All','f.prod':'Products','f.demo':'Demos',
+  'b.live':'Live demo','b.prod':'In production','b.internal':'Internal system','b.demo':'Demo · single file','b.wip':'In development',
+  'a.demo':'View demo','a.code':'Private code','a.creds':'Demo:'
+ }
+};
+let lang='es';
+try{const s=localStorage.getItem('mm-lang'); if(s==='en'||s==='es') lang=s;}catch(e){}
+const t=k=>T[lang][k]??T.es[k]??k;
+
+/* ---------- projects ---------- */
+const P=[
+ {id:'ada',cat:'prod',badge:'live',img:'img/ada.jpg',c:['#0E0B2A','#5A4AEA','#8B6DFF'],ce:'#B8A6FF',ct:'Ada',cs:'GESTIÓN ESCOLAR · CONTROL DE ACCESO',
+  es:{t:'Ada · Gestión Escolar',d:'Sistema de gestión escolar instalado en un colegio real: estudiantes, cursos, asistencia (PWA con swipe para docentes), acceso biométrico Control iD en modo push, calendario, cuotas, mensajería, auditoría y licenciamiento Ed25519.'},
+  en:{t:'Ada · School Management',d:'School management system running at a real school: students, courses, attendance (swipe PWA for teachers), Control iD biometric access in push mode, calendar, fees, messaging, audit log and Ed25519 licensing.'},
+  tags:['Django','React','PostgreSQL','PWA','Control iD'],demo:'https://demo.ada.ikeytechnologies.com/login'},
+ {id:'fitzone',cat:'prod',badge:'live',img:'img/fitzone.jpg',c:['#03160F','#0E9F6E','#22C55E'],ce:'#5EEAD4',ct:'FitZone <em>Pro</em>',cs:'GIMNASIOS · POS · BIOMETRÍA',
+  es:{t:'FitZone Pro',d:'Gestión de gimnasios: membresías, POS con sesiones de caja e impresora térmica, personal, acceso biométrico con cola de comandos push, pantallas de terminales (logos y MP4), SMTP configurable y respaldo/restauración.'},
+  en:{t:'FitZone Pro',d:'Gym management: memberships, POS with cash sessions and thermal printing, staff, biometric access with a push-command queue, terminal screens (logos and MP4), configurable SMTP and backup/restore.'},
+  tags:['Django','React','PostgreSQL','Redis','Celery'],demo:'https://demo.fitzonepro.ikeytechnologies.com/'}
+];
+const grid=document.getElementById('grid'), filters=document.getElementById('filters');
+let filter='all';
+const cats=[['all','f.all'],['prod','f.prod'],['demo','f.demo']];
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function renderFilters(){ if(!filters) return;
+  filters.innerHTML=cats.map(([c,k])=>`<button class="fbtn${filter===c?' on':''}" data-f="${c}">${t(k)}</button>`).join('');
+}
+function renderGrid(){
+  grid.innerHTML=P.map(p=>{
+    const L=p[lang];
+    const bc=p.badge==='wip'?' wip':p.badge==='internal'?' int':p.badge==='demo'?' demo':'';
+    const demo=p.demo?`<a class="btn w sm" href="${p.demo}" target="_blank" rel="noopener">${t('a.demo')} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>`:`<span class="btn sm dis">${t('a.code')}</span>`;
+    const creds=p.creds?`<div class="cred"><span>${t('a.creds')}</span><code>${esc(p.creds[0])}</code><code>${esc(p.creds[1])}</code></div>`:'';
+    return `<article class="card" data-cat="${p.cat}"${filter!=='all'&&filter!==p.cat?' hidden':''}>
+      <div class="cover" style="--c1:${p.c[0]};--c2:${p.c[1]};--c3:${p.c[2]};--ce:${p.ce}">
+        <span class="tagb${bc}"><i></i>${t('b.'+p.badge)}</span>
+        ${p.img?`<img class="shot" src="${p.img}" alt="${esc(L.t)}" loading="lazy">`:`<div><div class="ct">${p.ct}</div><div class="cs">${p.cs}</div></div><div class="ui"><i></i><i></i><i></i></div>`}
+      </div>
+      <div class="cbody"><h3>${esc(L.t)}</h3><p>${esc(L.d)}</p>
+        <div class="tags">${p.tags.map(x=>`<span class="tag">${esc(x)}</span>`).join('')}</div>${creds}
+        <div class="acts"><span class="code"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 4l-4 16"/></svg>${p.cat==='demo'?'HTML + JS · vanilla':'IKey Technologies'}</span>${demo}</div>
+      </div></article>`;
+  }).join('');
+}
+if(filters) filters.addEventListener('click',e=>{
+  const b=e.target.closest('[data-f]'); if(!b) return;
+  filter=b.dataset.f; renderFilters();
+  grid.querySelectorAll('.card').forEach(c=>{c.hidden=filter!=='all'&&c.dataset.cat!==filter;});
+});
+
+/* ---------- apply language ---------- */
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i]').forEach(el=>{el.textContent=t(el.dataset.i);});
+  document.querySelectorAll('[data-i-html]').forEach(el=>{el.innerHTML=t(el.dataset.iHtml);});
+  document.getElementById('langEs').innerHTML=lang==='es'?'<b>ES</b>':'ES';
+  document.getElementById('langEn').innerHTML=lang==='en'?'<b>EN</b>':'EN';
+  const cvHref=lang==='en'?'cv/CV_Marcos_Morillo_EN.pdf':'cv/CV_Marcos_Morillo_ES.pdf'; document.getElementById('cvRail').href=cvHref; const bk=document.getElementById('bkCv'); if(bk) bk.href=cvHref;
+  renderFilters(); renderGrid(); runTerminal(); setWords();
+}
+document.getElementById('langBtn').addEventListener('click',()=>{lang=lang==='es'?'en':'es';try{localStorage.setItem('mm-lang',lang);}catch(e){} applyLang();});
+
+/* ---------- nav ---------- */
+const nav=document.getElementById('nav');
+document.getElementById('burger').addEventListener('click',()=>nav.classList.toggle('open'));
+nav.addEventListener('click',e=>{if(e.target.tagName==='A') nav.classList.remove('open');});
+const secIds=['inicio','proyectos','stack','experiencia','contacto'];
+const links=[...nav.querySelectorAll('a')];
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting) links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+en.target.id));});},{rootMargin:'-35% 0px -55% 0px'});
+  secIds.forEach(id=>{const s=document.getElementById(id); if(s) io.observe(s);});
+}
+const totop=document.getElementById('totop');
+addEventListener('scroll',()=>totop.classList.toggle('show',scrollY>600),{passive:true});
+
+/* ---------- boot log ---------- */
+let termToken=0;
+function termLines(){
+  return lang==='es'?[
+    '<span class="d">[</span><span class="ok"> OK </span><span class="d">]</span> Perfil cargado: <span class="k">Marcos Morillo</span>',
+    '<span class="d">[</span><span class="ok"> OK </span><span class="d">]</span> Stack: <span class="v">.NET · Django · React · PostgreSQL</span>',
+    '<span class="d">[</span><span class="ok"> OK </span><span class="d">]</span> Productos en producción: <span class="k">Ada</span>, <span class="k">FitZone Pro</span>',
+    '<span class="d">[</span><span class="ok"> OK </span><span class="d">]</span> Hardware: terminales biométricas Control iD',
+    '<span class="d">[</span><span class="ok"> OK </span><span class="d">]</span> Estado: <span class="ok">disponible para nuevos proyectos</span>'
+  ]:[
+    '<span class="d">[</span><span class="ok"> OK </span><span class="d">]</span> Profile loaded: <span class="k">Marcos Morillo</span>',
+    '<span class="d">[</span><span class="ok"> OK </span><span class="d">]</span> Stack: <span class="v">.NET · Django · React · PostgreSQL</span>',
+    '<span class="d">[</span><span class="ok"> OK </span><span class="d">]</span> Products in production: <span class="k">Ada</span>, <span class="k">FitZone Pro</span>',
+    '<span class="d">[</span><span class="ok"> OK </span><span class="d">]</span> Hardware: Control iD biometric terminals',
+    '<span class="d">[</span><span class="ok"> OK </span><span class="d">]</span> Status: <span class="ok">available for new projects</span>'
+  ];
+}
+function runTerminal(){
+  const body=document.getElementById('termBody'); const lines=termLines(); const token=++termToken;
+  body.innerHTML='';
+  if(reduce){ body.innerHTML=lines.map(l=>`<div>${l}</div>`).join(''); return; }
+  let i=0;
+  const next=()=>{
+    if(token!==termToken) return;
+    if(i>=lines.length){ const d=document.createElement('div'); d.innerHTML='<span class="d">$</span> <span class="cur"></span>'; body.appendChild(d); return; }
+    const d=document.createElement('div'); d.innerHTML=lines[i++]; d.style.opacity='0'; d.style.transform='translateX(-6px)'; d.style.transition='opacity .25s, transform .25s'; body.appendChild(d);
+    requestAnimationFrame(()=>{ d.style.opacity='1'; d.style.transform='none'; });
+    setTimeout(next,380);
+  };
+  setTimeout(next,300);
+}
+
+/* ---------- decode text ---------- */
+const decEl=document.getElementById('dec');
+const GL='!<>-_\\/[]{}=+*^?#01';
+let decWords=[], decI=0, decTimer=0, decRAF=0;
+function setWords(){
+  decWords=lang==='es'?['// full-stack developer','// backend · .NET · Django','// frontend · React · Angular','// integraciones biométricas','// santo domingo, rd']:['// full-stack developer','// backend · .NET · Django','// frontend · React · Angular','// biometric integrations','// santo domingo, dr'];
+  decI=0; clearTimeout(decTimer); cancelAnimationFrame(decRAF);
+  if(reduce){ decEl.textContent=decWords[0]; return; }
+  decode(decWords[0]);
+}
+function decode(text){
+  const from=decEl.textContent||'', len=Math.max(from.length,text.length);
+  const q=[]; for(let i=0;i<len;i++){ q.push({to:text[i]||'',start:Math.floor(Math.random()*18),end:Math.floor(Math.random()*18)+18}); }
+  let f=0;
+  const step=()=>{
+    let out='',done=0;
+    for(let i=0;i<q.length;i++){ const c=q[i]; if(f>=c.end){done++; out+=c.to;} else if(f>=c.start){ out+='<span class="x">'+GL[Math.floor(Math.random()*GL.length)]+'</span>'; } else out+=(from[i]||''); }
+    decEl.innerHTML=out;
+    if(done<q.length){ f++; decRAF=requestAnimationFrame(step); }
+    else { decTimer=setTimeout(()=>{ decI=(decI+1)%decWords.length; decode(decWords[decI]); },2600); }
+  };
+  step();
+}
+
+/* ---------- data-mesh background ---------- */
+const sc=document.getElementById('space'), sx=sc.getContext('2d');
+let SW=0,SH=0, nodes=[], pulses=[];
+const GAP=56;
+function sizeS(){ SW=innerWidth; SH=innerHeight; const d=Math.min(devicePixelRatio||1,1.5); sc.width=SW*d; sc.height=SH*d; sx.setTransform(d,0,0,d,0,0); }
+function initS(){
+  nodes=[]; const cols=Math.ceil(SW/GAP)+1, rows=Math.ceil(SH/GAP)+1;
+  for(let r=0;r<rows;r++) for(let c=0;c<cols;c++) nodes.push({x:c*GAP,y:r*GAP,p:Math.random()*Math.PI*2});
+  pulses=[]; for(let i=0;i<7;i++) pulses.push(mkPulse());
+}
+function mkPulse(){ const horiz=Math.random()<.5; return {h:horiz, pos:Math.random()*(horiz?SW:SH), line:Math.floor(Math.random()*((horiz?SH:SW)/GAP))*GAP, v:(.6+Math.random()*1.2)*(Math.random()<.5?1:-1), len:80+Math.random()*140, a:.35+Math.random()*.4}; }
+function drawS(now){
+  requestAnimationFrame(drawS);
+  sx.fillStyle='#050505'; sx.fillRect(0,0,SW,SH);
+  const dim=1-Math.min(.75,scrollY/900);
+  sx.fillStyle='rgba(120,130,170,1)';
+  for(const n of nodes){ const a=(.12+.10*Math.sin(now/1400+n.p))*dim; sx.globalAlpha=a; sx.fillRect(n.x-.75,n.y-.75,1.5,1.5); }
+  for(const p of pulses){
+    p.pos+=p.v; if(p.pos<-p.len||p.pos>(p.h?SW:SH)+p.len){ Object.assign(p,mkPulse()); }
+    const g=p.h?sx.createLinearGradient(p.pos-p.len*Math.sign(p.v),0,p.pos,0):sx.createLinearGradient(0,p.pos-p.len*Math.sign(p.v),0,p.pos);
+    g.addColorStop(0,'rgba(56,189,248,0)'); g.addColorStop(1,'rgba(56,189,248,'+(p.a*dim)+')');
+    sx.strokeStyle=g; sx.lineWidth=1.2; sx.globalAlpha=1; sx.beginPath();
+    if(p.h){ sx.moveTo(p.pos-p.len*Math.sign(p.v),p.line); sx.lineTo(p.pos,p.line); } else { sx.moveTo(p.line,p.pos-p.len*Math.sign(p.v)); sx.lineTo(p.line,p.pos); }
+    sx.stroke();
+  }
+  sx.globalAlpha=1;
+  const rg=sx.createRadialGradient(SW*.72,SH*.35,0,SW*.72,SH*.35,SW*.5); rg.addColorStop(0,'rgba(56,189,248,'+(.07*dim)+')'); rg.addColorStop(1,'rgba(5,5,5,0)');
+  sx.fillStyle=rg; sx.fillRect(0,0,SW,SH);
+}
+function startS(){ sizeS(); initS(); if(reduce){ sx.fillStyle='#050505'; sx.fillRect(0,0,SW,SH); sx.fillStyle='rgba(120,130,170,.18)'; for(const n of nodes) sx.fillRect(n.x-.75,n.y-.75,1.5,1.5); } else requestAnimationFrame(drawS); }
+
+/* ---------- skeleton demo ---------- */
+function skRun(){}
+function skFirstPaint(){ if(reduce) return; const cs=[...grid.querySelectorAll('.cover')]; cs.forEach(c=>c.classList.add('sk')); setTimeout(()=>cs.forEach(c=>c.classList.remove('sk')),450); }
+
+/* ---------- copy ---------- */
+document.querySelectorAll('[data-cp]').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const el=document.getElementById(b.dataset.cp); const txt=el.textContent.trim();
+    const done=()=>{ b.textContent=t('ct.copied'); b.classList.add('ok'); setTimeout(()=>{b.textContent=t('ct.copy'); b.classList.remove('ok');},1600); };
+    const fb=()=>{ const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); done(); };
+    try{ navigator.clipboard.writeText(txt).then(done,fb); }catch(e){ fb(); }
+  });
+});
+
+/* ---------- clock ---------- */
+function clock(){ try{ const s=new Intl.DateTimeFormat('es-DO',{timeZone:'America/Santo_Domingo',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date()); document.getElementById('clock').textContent='SDQ '+s; }catch(e){} }
+clock(); setInterval(clock,30000);
+document.getElementById('year').textContent=new Date().getFullYear();
+
+/* ---------- badge flip ---------- */
+(function(){
+  const card=document.getElementById('cardId'); if(!card) return;
+  const flip=()=>card.classList.toggle('flipped');
+  card.addEventListener('click',e=>{ if(e.target.closest('a')) return; flip(); });
+  card.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); flip(); } });
+})();
+
+/* ---------- boot ---------- */
+applyLang(); skFirstPaint(); skRun(900);
+startS();
+let rt; addEventListener('resize',()=>{ clearTimeout(rt); rt=setTimeout(()=>{ if(reduce) startS(); else { sizeS(); initS(); } },150); });
+})();
+</script>
+
+</body>
+</html>
